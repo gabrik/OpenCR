@@ -38,3 +38,43 @@
     - Folders(version name) : Compressed files for updating TB3 core binary with ld_shell for each TB3 core version.
     - shell_update : Latest Compressed files for updating TB3 core binary with ld_shell.
     - package_opencr_index.json : json file for Arduino OpenCR package.
+
+
+## How to build for OpenCR
+
+Install arduino-cli: https://arduino.github.io/arduino-cli/0.19/installation/
+
+Add the OpenCR board manager
+
+```
+echo '''board_manager:
+  additional_urls:
+    - https://raw.githubusercontent.com/ROBOTIS-GIT/OpenCR/master/arduino/opencr_release/package_opencr_index.json''' > arduino-cli.yaml
+
+```
+
+Install the board:
+
+```
+arduino-cli core install OpenCR:OpenCR
+arduino-cli core update-index
+arduino-cli lib update-index
+
+```
+
+Build the sketch
+
+```
+arduino-cli compile --fqbn OpenCR:OpenCR:OpenCR path_to_ino_file --output-dir ./
+```
+
+
+## How to flash
+
+Use the `opencr_ld`
+
+Eg.
+
+```
+./opencr_ld /dev/cu.usbmodemFFFFFFFEFFFF1 115200 /path/to/file.bin 1
+```
