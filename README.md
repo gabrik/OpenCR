@@ -78,3 +78,31 @@ Eg.
 ```
 ./opencr_ld /dev/cu.usbmodemFFFFFFFEFFFF1 115200 /path/to/file.bin 1
 ```
+
+
+## Topics used
+
+Found in: `arduino/opencr_arduino/opencr/libraries/turtlebot3/examples/turtlebot3_burger/turtlebot3_core/turtlebot3_core_config.h`
+
+### Subscribers
+
+| Topic Name   |      Type      |
+|--------------|:--------------:|
+| cmd_vel      | Twist          |
+| sound        | Sound          |
+| motor_power  | Bool           |
+| reset        | Empty          |
+
+
+### Publishers
+
+| Topic Name       |      Type      |
+|------------------|:--------------:|
+| sensor_state     | SensorState    |
+| firmware_version | VersionInfo    |
+| imu              | Imu            |
+| cmd_vel_rc100    | Twist          |
+| odom             | Odometry       |
+| joint_states     | JoinState      |
+| battery_state    | BatteryState   |
+| magnetic_field   | MagneticField  |
